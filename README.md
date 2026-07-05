@@ -1,6 +1,6 @@
 # Django Monthly Challenges Example
 
-A simple yet powerful Django project designed to help developers practice and showcase their skills through monthly coding challenges. This platform is perfect for learners, hobbyists, and professionals looking to improve their Python and web development abilities.
+A simple yet powerful Django project for managing and displaying monthly challenges. Perfect for educators, trainers, or anyone looking to organize and share learning content on a monthly basis.
 
 ## Table of Contents
 1. [Features](#features)
@@ -12,42 +12,39 @@ A simple yet powerful Django project designed to help developers practice and sh
 7. [Quick Start](#quick-start)
 8. [Usage](#usage)
 9. [Project Structure](#project-structure)
-10. [Development](#development)
-11. [Limitations](#limitations)
-12. [License](#license)
+10. [License](#license)
 
 ## Features
 ### Challenge Management
-- **Admin Interface**: Easily create, edit, and delete coding challenges.
-- **User Authentication**: Secure user accounts for tracking progress and achievements.
+- **Create and Edit Challenges**: Easily add, edit, and manage monthly challenges.
+- **Challenge Categories**: Organize challenges into categories for better navigation.
+
+### User Authentication
+- **User Profiles**: Manage user profiles with basic information.
+- **Role-Based Access Control**: Different roles (e.g., admin, viewer) with varying permissions.
 
 ### Responsive Design
-- **Mobile-Friendly**: The platform is designed to be accessible on various devices.
-
-### Customizable Challenges
-- **Multiple Difficulty Levels**: Choose from easy, medium, and hard challenges.
-- **Custom Challenge Creation**: Users can create their own challenges for the community.
+- **Mobile-Friendly**: Ensure the website is accessible and visually appealing on all devices.
 
 ## How It Works
-The Django Monthly Challenges Example follows a straightforward architecture:
+The project follows a typical Django application structure. The main components include:
 
-1. **User Authentication**: Users log in using their credentials or social media accounts.
-2. **Challenge Selection**: Users browse through available challenges based on difficulty and category.
-3. **Submission**: Users submit their solutions, which are automatically checked for correctness.
-4. **Feedback**: Users receive feedback on their submissions, including hints and explanations.
+1. **Models**: Define the data structures for challenges, users, and categories.
+2. **Views**: Handle business logic and user interactions.
+3. **Templates**: Render HTML content dynamically based on the data.
+4. **URLs**: Map URLs to views.
 
 ## Technology Stack
 | Technology | Purpose |
 |------------|---------|
 | Django     | Web framework for building robust web applications. |
-| Python     | Programming language used for backend development. |
-| PostgreSQL | Database management system for storing user data and challenges. |
+| Python     | Programming language used for development. |
+| SQLite     | Database for storing application data. |
 | Bootstrap  | Frontend framework for responsive design. |
 
 ## Requirements
 - **Python**: 3.8 or higher
 - **Django**: 3.2 or higher
-- **PostgreSQL**: 10 or higher
 
 ## Installation
 To install the project, follow these steps:
@@ -85,42 +82,38 @@ To install the project, follow these steps:
    ```
 
 ## Configuration
-The project uses environment variables for configuration. You can set these in a `.env` file:
+The project uses environment variables for configuration. The following variables are observed:
 
-```plaintext
-SECRET_KEY=your_secret_key_here
-DEBUG=True
-ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
-DATABASE_URL=postgres://user:password@localhost/dbname
-```
+- `SECRET_KEY`: Secret key for cryptographic signing.
+- `DEBUG`: Enable or disable debug mode.
+
+These variables can be set in a `.env` file or directly in the environment where the application is running.
 
 ## Quick Start
-To get started quickly, follow these steps:
+To quickly get started, follow these steps:
 
 1. Clone the repository and navigate to the project directory.
-2. Set up a virtual environment and install dependencies.
+2. Set up the virtual environment and install dependencies.
 3. Apply migrations and create a superuser.
 4. Run the development server.
 
 ## Usage
 Here are some example commands and usage scenarios:
 
-- **Creating a new challenge**:
+- **Creating a Challenge**:
   ```bash
   python manage.py createsuperuser
-  # Follow prompts to create an admin user
+  # Follow prompts to create a new challenge
   ```
 
-- **Running the development server**:
-  ```bash
-  python manage.py runserver
-  # Access the platform at http://127.0.0.1:8000/
-  ```
+- **Viewing Challenges**:
+  Open your web browser and navigate to `http://127.0.0.1:8000/challenges/`.
 
 ## Project Structure
 ```
 Django_Monthly_Challanges_Example/
 ├── challenges/
+│   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
 │   ├── migrations/
@@ -131,7 +124,7 @@ Django_Monthly_Challanges_Example/
 │   │       ├── challenge.css
 │   │       ├── includes/
 │   │       │   ├── header.css
-│   │       │   └── header.html
+│   │       │   └── index.css
 │   │       └── index.css
 │   ├── templates/
 │   │   └── challenges/
@@ -153,15 +146,7 @@ Django_Monthly_Challanges_Example/
 ```
 
 ## Development
-The project follows a standard Django development workflow:
-
-1. **Feature Branches**: Create feature branches for new features.
-2. **Code Reviews**: Submit pull requests for code reviews.
-3. **Merging**: Merge approved changes into the main branch.
-
-## Limitations
-- **Single Database**: The platform currently supports only one database instance.
-- **Basic Authentication**: Basic authentication is used for simplicity; consider using OAuth for production environments.
+The project follows a standard Django development workflow. Contributions are welcome!
 
 ## License
 This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for more details.
